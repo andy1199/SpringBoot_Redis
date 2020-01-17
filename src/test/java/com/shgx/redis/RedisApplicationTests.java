@@ -18,7 +18,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class RedisApplicationTests {
+public class RedisApplicationTests
+{
 
     private MockMvc mockMvc;
 
@@ -27,17 +28,15 @@ public class RedisApplicationTests {
 
 
     @Before
-    public void setup() {
+    public void setup()
+    {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
     }
 
     @Test
-    public void testSession()throws Exception{
-        MvcResult result = mockMvc.perform(post("/session/testSessionTimeOut")
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .accept(MediaType.APPLICATION_JSON_UTF8))
-                .andDo(print())
-                .andReturn();
+    public void testSession() throws Exception
+    {
+        MvcResult result = mockMvc.perform(post("/session/testSessionTimeOut").contentType(MediaType.APPLICATION_JSON_UTF8).accept(MediaType.APPLICATION_JSON_UTF8)).andDo(print()).andReturn();
 
         System.out.println(result.getResponse().getContentAsString());
     }

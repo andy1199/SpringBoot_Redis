@@ -12,17 +12,19 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/session")
-public class RequestSession {
+public class RequestSession
+{
 
     @Autowired
     UserService userService;
 
     @RequestMapping("testSessionTimeOut")
-    public String testSessionTimeOut(Long id, HttpSession session, Model model){
+    public String testSessionTimeOut(Long id, HttpSession session, Model model)
+    {
         User user = userService.getUserById(id);
-        System.out.println("sessionId-------->"+session.getId());
+        System.out.println("sessionId-------->" + session.getId());
         model.addAttribute("user", JSON.toJSONString(user));
-        session.setAttribute("user",JSON.toJSONString(user));
+        session.setAttribute("user", JSON.toJSONString(user));
         return "hello world";
     }
 }

@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
-public class TestRedis {
+public class TestRedis
+{
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
@@ -15,7 +16,8 @@ public class TestRedis {
     private RedisTemplate<String, User> redisTemplate;
 
     @Test
-    public void test() throws Exception {
+    public void test() throws Exception
+    {
 
         // 保存字符串
         stringRedisTemplate.opsForValue().set("aaa", "111");
